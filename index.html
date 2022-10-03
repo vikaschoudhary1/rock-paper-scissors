@@ -27,7 +27,7 @@
 
         // play a round of rock paper scissors
         function playRound (playerSelection, computerSelection) {
-
+            playerSelection = playerSelection.toLowerCase()
             // if you draw Rock, Paper or Scissors and computer draws Paper, Scissors or Rock respectively, you lose
             if (playerSelection === 'rock' && computerSelection === 'paper'){
                 return "You Lose! Paper beats Rock";
