@@ -24,7 +24,6 @@
             }
         } 
 
-
         // play a round of rock paper scissors
         function playRound (playerSelection, computerSelection = getComputerChoice()) {
             playerSelection = playerSelection.toLowerCase()
@@ -37,44 +36,37 @@
             } else if (playerSelection === 'scissors' && computerSelection === 'rock'){
                 return 'You Lose! Rock beats Paper';
             } 
-
             
             // if you draw Paper, Scissors or Rock and computer draws Rock, Paper or Scissor then you win
             else if (playerSelection === 'paper' && computerSelection === 'rock') { return "You Win! Paper beats Rock";}
             else if (playerSelection === 'scissors' && computerSelection === 'paper') { return "You Win! Scissors beats Paper";}
             else if (playerSelection === 'rock' && computerSelection === 'scissors') {return "You Win! Rock beats Paper"} 
 
+            // if both draw the same then it is a tie
             else if (playerSelection === 'paper' && computerSelection === 'paper') {return "Draw, both Paper"}
             else if (playerSelection === 'scissors' && computerSelection === 'scissors') {return "Draw, both Scissors"}
             else if (playerSelection === 'rock' && computerSelection === 'rock') {return "Draw, both Rock"}
 
         }
 
-       // let playerSelection = () => prompt('Rock, Paper or Scissors');            // take input form user; either Rock, Paper or Scissors
-       // playerSelection = playerSelection.toLowerCase();                    // convert the input to lowercase
-       //const computerSelection = getComputerChoice();                                                 // let computer make a choice
-
-       
-
        function game(){
-        let playerScore = 0;
-        for (let i = 0; i < 5; i++){
-            let playerSelection = prompt('Rock, Paper or Scissors?');
-            let gameResult = playRound(playerSelection);
-            console.log(gameResult);
-            if(gameResult.slice(4,7) === 'Win'){
-                playerScore++;
+        let playerScore = 0;                                                // initial score of the player
+        for (let i = 0; i < 5; i++){                                        // play rock paper scissors five times
+            let playerSelection = prompt('Rock, Paper or Scissors?');       // ask the user for input
+            let gameResult = playRound(playerSelection);                    // execute playRound and store the return value 
+            console.log(gameResult);                                        // display result of the game
+            if(gameResult.slice(4,7) === 'Win'){                            
+                playerScore++;                                              // increment player score if they win
             } else if (gameResult.slice(4,8) === 'Lose'){
-                playerScore--;
+                playerScore--;                                              // decrement player score if they lose
             }
         }
-        if (playerScore > 0){
+        if (playerScore > 0){                                               // declare final score
             alert(`You Win! Your score was ${playerScore}`)
         } else {
             alert(`You Lose! Your score was ${playerScore}`)
         }
        }
-       
 
     </script>
 </body>
