@@ -26,14 +26,34 @@
 
 
         // play a round of rock paper scissors
-        const playRound = () => {
-        Let playerSelection = prompt('Rock, Paper or Scissors');            // take input form user; either Rock, Paper or Scissors
-        playerSelection = playerSelection.toLowerCase();                    // convert the input to lowercase
+        function playRound (playerSelection, computerSelection) {
 
-        getComputerChoice()                                                 // let computer 
+            // if you draw Rock, Paper or Scissors and computer draws Paper, Scissors or Rock respectively, you lose
+            if (playerSelection === 'rock' && computerSelection === 'paper'){
+                return "You Lose! Paper beats Rock";
+            } else if (playerSelection === 'paper' && computerSelection === 'scissors'){
+                return 'You Lose! Scissors beats Paper';
+            } else if (playerSelection === 'scissors' && computerSelection === 'rock'){
+                return 'You Lose! Rock beats Paper';
+            } 
+
+            
+            // if you draw Paper, Scissors or Rock and computer draws Rock, Paper or Scissor then you win
+            else if (playerSelection === 'paper' && computerSelection === 'rock') { return "You Win! Paper beats Rock";}
+            else if (playerSelection === 'scissors' && computerSelection === 'paper') { return "You Win! Scissors beats Paper";}
+            else if (playerSelection === 'rock' && computerSelection === 'scissors') {return "You Win! Rock beats Paper"} 
+
+            else if (playerSelection === 'paper' && computerSelection === 'paper') {return "Draw, both Paper"}
+            else if (playerSelection === 'scissors' && computerSelection === 'scissors') {return "Draw, both Scissors"}
+            else if (playerSelection === 'rock' && computerSelection === 'rock') {return "Draw, both Rock"}
+
         }
-        // if you draw Rock, Paper or Scissors and computer draws Paper, Scissors or Rock respectively, you lose
-        // if you draw Paper, Scissors or Rock and computer draws Rock, Paper or Scissor then you win
+        
+
+       // let playerSelection = () => prompt('Rock, Paper or Scissors');            // take input form user; either Rock, Paper or Scissors
+       // playerSelection = playerSelection.toLowerCase();                    // convert the input to lowercase
+       //const computerSelection = getComputerChoice();                                                 // let computer make a choice
+
 
     </script>
 </body>
