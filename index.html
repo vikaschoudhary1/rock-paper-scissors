@@ -54,6 +54,13 @@
        // playerSelection = playerSelection.toLowerCase();                    // convert the input to lowercase
        //const computerSelection = getComputerChoice();                                                 // let computer make a choice
 
+       function game(){
+        for (let i = 0; i < 5; i++){
+            let playerSelection = prompt('Rock, Paper or Scissors?')
+            console.log(playRound(playerSelection));
+        }
+       }
+
     </script>
 </body>
 </html>
