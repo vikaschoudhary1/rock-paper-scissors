@@ -9,20 +9,32 @@
 </head>
 <body>
     <script>
-        //random number between 1, 2 and 3
+        // generate random number between 1 and 3
         const randomNum = () => Math.floor((Math.random() * 3) + 1);
 
-        //getComputerChoice
+        // choose between Rock, Paper and Scissors using randomNum
         function getComputerChoice (){
             const choice = randomNum();
             if (choice === 1){
-                return 'Rock';          //choose Rock if random number is 1
+                return 'rock';          // choose Rock if random number is 1
             } else if ( choice === 2){
-                return 'Paper';         //choose Paper if random number is 2
+                return 'paper';         // choose Paper if random number is 2
             } else {
-                return 'Scissors';      //choose Scissors if random number is 3
+                return 'scissors';      // choose Scissors if random number is 3
             }
         } 
+
+
+        // play a round of rock paper scissors
+        const playRound = () => {
+        Let playerSelection = prompt('Rock, Paper or Scissors');            // take input form user; either Rock, Paper or Scissors
+        playerSelection = playerSelection.toLowerCase();                    // convert the input to lowercase
+
+        getComputerChoice()                                                 // let computer 
+        }
+        // if you draw Rock, Paper or Scissors and computer draws Paper, Scissors or Rock respectively, you lose
+        // if you draw Paper, Scissors or Rock and computer draws Rock, Paper or Scissor then you win
+
     </script>
 </body>
 </html>
