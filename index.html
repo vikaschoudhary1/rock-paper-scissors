@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-    <button data-value="rock">Rock</button>
-    <button data-value="paper">Paper</button>
-    <button data-value="scissors">Scissors</button>
-    <button id="reset">Reset Score</button>
-    <div id="scores"></div>
+    <div>
+        <button data-value="rock">Rock</button>
+        <button data-value="paper">Paper</button>
+        <button data-value="scissors">Scissors</button>
+        <button id="reset">Reset Score</button>
+    </div>
+    <div>
+        <div id="scores"></div>
+    </div>
 
     <script>
         // generate random number between 1 and 3
@@ -104,13 +108,27 @@
                 const resultDiv = document.createElement('div');
                 resultDiv.textContent = gameResult + `. Your current score is ${score}`;
                 document.querySelector('#scores').appendChild(resultDiv);
+
+                if(score === 2){
+                    const winningDiv = document.createElement('div');
+                    winningDiv.textContent = "You win the game!";
+                    winningDiv.style.color = 'green';
+                    document.querySelector('#scores').appendChild(winningDiv);
+                    score = 0;
+                } else if (score === -2){
+                    const losingDiv = document.createElement('div');
+                    losingDiv.textContent = "You lose the game!";
+                    losingDiv.style.color = 'red';
+                    document.querySelector('#scores').appendChild(losingDiv);
+                    score = 0;
+                }
             })
         })
 
         document.querySelector('#reset').addEventListener('click', () => {
             score = 0;
             const resetDiv = document.createElement('div');
-            resetDiv.textContent = 'Results has been reset';
+            resetDiv.textContent = `Results has been reset. Score ${score}`;
             document.querySelector('#scores').appendChild(resetDiv);
         })
 

@@ -1,0 +1,15 @@
+body > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+button{
+    flex: 0 1 auto;
+    min-width: 30px;
+}
+
+body > div:first-child {
+    min-height: 100px;
+}
