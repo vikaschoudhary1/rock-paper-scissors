@@ -8,6 +8,11 @@
     <script src="script.js"></script>
 </head>
 <body>
+
+    <button class="rock">Rock</button>
+    <button class="paper">Paper</button>
+    <button class="scissors">Scissors</button>
+
     <script>
         // generate random number between 1 and 3
         const randomNum = () => Math.floor((Math.random() * 3) + 1);
@@ -62,8 +67,6 @@
 
         let playerScore = 0;                                           // initial score of the player
 
-        for (let i = 0; i < 5; i++){                                   // play rock paper scissors five times
-
             let playerSelection = prompt('Rock, Paper or Scissors?');  // ask the user for input
             let gameResult = playRound(playerSelection);               // execute playRound and store the return value 
             console.log(gameResult);                                   // display result of the game
@@ -81,7 +84,6 @@
             alert(`You Lose! Your score was ${playerScore}`)
         }
         
-       }
 
     </script>
 </body>
