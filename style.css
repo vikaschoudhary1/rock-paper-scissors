@@ -2,12 +2,12 @@ body > div {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 30px;
 }
 
 button{
     flex: 0 1 auto;
-    min-width: 30px;
+    min-width: 25px;
 }
 
 body > div:first-child {
