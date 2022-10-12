@@ -12,6 +12,7 @@
     <button data-value="rock">Rock</button>
     <button data-value="paper">Paper</button>
     <button data-value="scissors">Scissors</button>
+    <button id="reset">Reset Score</button>
     <div id="scores"></div>
 
     <script>
@@ -90,33 +91,29 @@
         const buttons = document.querySelectorAll('button')
         buttons.forEach((item) =>{
             item.addEventListener('click', () => {
+                if (item.dataset.value === undefined){return}   // return if any other button is pressed
+
+                const gameResult = playRound(item.dataset.value);
+
+                if(gameResult.slice(4,7) === 'Win'){                            
+                score++;                                         // increment player score if they win
+                } else if (gameResult.slice(4,8) === 'Lose'){
+                score--;                                         // decrement player score if they lose
+                }
+
                 const resultDiv = document.createElement('div');
-                resultDiv.textContent = playRound(item.dataset.value);
+                resultDiv.textContent = gameResult + `. Your current score is ${score}`;
                 document.querySelector('#scores').appendChild(resultDiv);
             })
         })
 
-        // addEventListener('click', () => {
-        //     const resultText = document.createElement('p');
-        //     resultText.textContent = playRound('rock');
-        //     document.querySelector('div').appendChild(resultText);
-        // });
+        document.querySelector('#reset').addEventListener('click', () => {
+            score = 0;
+            const resetDiv = document.createElement('div');
+            resetDiv.textContent = 'Results has been reset';
+            document.querySelector('#scores').appendChild(resetDiv);
+        })
 
-        // document.querySelector('#paper').addEventListener('click', () => {
-        //     const resultText = document.createElement('p');
-        //     resultText.textContent = playRound('paper');
-        //     document.querySelector('div').appendChild(resultText);
-        // });
-        
-        // document.querySelector('#scissors').addEventListener('click', () => {
-        //     const resultText = document.createElement('p');
-        //     resultText.textContent = playRound('scissors');
-        //     document.querySelector('div').appendChild(resultText);
-        // });
-        
-
-
-                 
 
     </script>
 </body>
