@@ -9,9 +9,9 @@
 </head>
 <body>
 
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
+    <button data-value="rock">Rock</button>
+    <button data-value="paper">Paper</button>
+    <button data-value="scissors">Scissors</button>
     <div id="scores"></div>
 
     <script>
@@ -87,23 +87,32 @@
 
         let score = 0; 
 
-        document.querySelector('#rock').addEventListener('click', () => {
-            const resultText = document.createElement('p');
-            resultText.textContent = playRound('rock');
-            document.querySelector('div').appendChild(resultText);
-        });
+        const buttons = document.querySelectorAll('button')
+        buttons.forEach((item) =>{
+            item.addEventListener('click', () => {
+                const resultDiv = document.createElement('div');
+                resultDiv.textContent = playRound(item.dataset.value);
+                document.querySelector('#scores').appendChild(resultDiv);
+            })
+        })
 
-        document.querySelector('#paper').addEventListener('click', () => {
-            const resultText = document.createElement('p');
-            resultText.textContent = playRound('paper');
-            document.querySelector('div').appendChild(resultText);
-        });
+        // addEventListener('click', () => {
+        //     const resultText = document.createElement('p');
+        //     resultText.textContent = playRound('rock');
+        //     document.querySelector('div').appendChild(resultText);
+        // });
+
+        // document.querySelector('#paper').addEventListener('click', () => {
+        //     const resultText = document.createElement('p');
+        //     resultText.textContent = playRound('paper');
+        //     document.querySelector('div').appendChild(resultText);
+        // });
         
-        document.querySelector('#scissors').addEventListener('click', () => {
-            const resultText = document.createElement('p');
-            resultText.textContent = playRound('scissors');
-            document.querySelector('div').appendChild(resultText);
-        });
+        // document.querySelector('#scissors').addEventListener('click', () => {
+        //     const resultText = document.createElement('p');
+        //     resultText.textContent = playRound('scissors');
+        //     document.querySelector('div').appendChild(resultText);
+        // });
         
 
 
