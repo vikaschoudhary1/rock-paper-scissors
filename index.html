@@ -9,9 +9,10 @@
 </head>
 <body>
 
-    <button class="rock">Rock</button>
-    <button class="paper">Paper</button>
-    <button class="scissors">Scissors</button>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <div id="scores"></div>
 
     <script>
         // generate random number between 1 and 3
@@ -76,14 +77,37 @@
             } else if (gameResult.slice(4,8) === 'Lose'){
                 playerScore--;                                         // decrement player score if they lose
             }
-        }
 
         if (playerScore > 0){                                          // declare final score
             alert(`You Win! Your score was ${playerScore}`)
         } else {
             alert(`You Lose! Your score was ${playerScore}`)
         }
+        }
+
+        let score = 0; 
+
+        document.querySelector('#rock').addEventListener('click', () => {
+            const resultText = document.createElement('p');
+            resultText.textContent = playRound('rock');
+            document.querySelector('div').appendChild(resultText);
+        });
+
+        document.querySelector('#paper').addEventListener('click', () => {
+            const resultText = document.createElement('p');
+            resultText.textContent = playRound('paper');
+            document.querySelector('div').appendChild(resultText);
+        });
         
+        document.querySelector('#scissors').addEventListener('click', () => {
+            const resultText = document.createElement('p');
+            resultText.textContent = playRound('scissors');
+            document.querySelector('div').appendChild(resultText);
+        });
+        
+
+
+                 
 
     </script>
 </body>
