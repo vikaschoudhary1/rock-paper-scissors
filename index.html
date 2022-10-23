@@ -14,6 +14,7 @@
         <button data-value="paper">Paper</button>
         <button data-value="scissors">Scissors</button>
         <button id="reset">Reset Score</button>
+        <div>Score <span id="scoreCount"></span></div>
     </div>
     <div>
         <div id="scores"></div>
@@ -132,6 +133,9 @@
             document.querySelector('#scores').appendChild(resetDiv);
         })
 
+        function updateScore(){
+            document.querySelector('scoreCount').textContent = '1';
+        };
 
     </script>
 </body>
